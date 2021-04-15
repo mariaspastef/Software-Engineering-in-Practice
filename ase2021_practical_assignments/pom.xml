@@ -4,8 +4,8 @@
   <artifactId>ase2021_practical_assignments</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>Second Lab Assignment</name>
-  <description>This is the seond Lab Assignment of Applied Software Engineering</description>
+  <name>ASE Lab Assignments Project</name>
+  <description>This is the Maven multi-module Project that will contain all the Lab Assignments for Applied Software Engineering Course.</description>
   <properties>
 	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	<maven.compiler.source>1.8</maven.compiler.source>

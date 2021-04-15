@@ -7,8 +7,10 @@
   </parent>
   <artifactId>gradeshistogram</artifactId>
   <name>Grade Histogram Generator</name>
-  <description>This is the child maven project.
-This modules creates a histogram from a given file of grades.</description>
+  <description>
+  This modules creates a histogram of frequencies from a given file of grades.
+  The generated jar is a "fat-jar" that includes the dependency in the main executable jar.
+  </description>
   	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.jfree/jfreechart -->
 		<dependency>
