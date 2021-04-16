@@ -1,13 +1,17 @@
 package gradeshistogram;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.statistics.HistogramDataset;
+import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
 
 /***
  * @author mariaspastefadourou The purpose of this class is to demonstrate a
@@ -23,12 +27,12 @@ public class HistogramGenerator {
 	 * 
 	 * @param datainput Integer ArrayList
 	 */
-	public double[] getGrades(ArrayList<Integer> datainput) {
+	public int[] getGrades(ArrayList<Integer> datainput) {
 
-		double[] dataValues = new double[datainput.size()];
+		int[] dataValues = new int[datainput.size()];
 
 		int i = 0;
-		for (final Integer values : datainput) {
+		for (final int values : datainput) {
 			dataValues[i++] = values;
 		}
 		return dataValues;
@@ -40,23 +44,28 @@ public class HistogramGenerator {
 	 * generated with the use of the aforementioned dataset and then presented in
 	 * the screen.
 	 * 
-	 * @param dataValues Single dimension double array
+	 * @param dataValues Single dimension Integer array
 	 * @throws FileNotFoundException
 	 */
-	public void generateChart(double[] dataValues) {
+	public void generateChart(int[] dataValues) {
 		/*
-		 * The HistogramDataset object is a dataset that can be visualized in the same
-		 * chart
+		 * The XYSeriesCollection object is a set XYSeries series (dataset) that
+		 * can be visualized in the same chart
 		 */
-		HistogramDataset dataset = new HistogramDataset();
-
-		int bin = 1;
-
+		XYSeriesCollection dataset = new XYSeriesCollection();
 		/*
-		 * Pick all elements one by one to find the size of the bin needed for the
-		 * dataset A “bin” is another word for a division or group in a histogram
+		 * The XYSeries that are loaded in the dataset. There might be many
+		 * series in one dataset.
 		 */
-		for (int i = 1; i < dataValues.length; i++) {
+		XYSeries data = new XYSeries("random values");
+
+		int bin = 0;
+		ArrayList<Integer> grades = new ArrayList<Integer>();
+		
+		/*
+		 * Pick all elements one by one to find how many different grades there are in the given file
+		 */
+		for (int i = 0; i < dataValues.length; i++) {
 			int j = 0;
 			for (j = 0; j < i; j++) {
 				if (dataValues[i] == dataValues[j])
@@ -66,15 +75,38 @@ public class HistogramGenerator {
 			// If it was not found earlier,
 			// then count it
 			if (i == j) {
+				grades.add(dataValues[i]);
 				bin++;
 			}
 		}
-
+		
+		// Sort the ArrayList that contains the unique grades from the given file
+		Collections.sort(grades);
+		
+		/*
+		 * Find the Frequency of every grade that was in the given file
+		 */	
+		for (int i = 0; i < grades.size(); i++) {
+			int freq = 0;
+			for (int j = 0; j < dataValues.length; j++) {
+				if (grades.get(i) == dataValues[j]) {
+					freq++;
+				}
+			}
+			int number = grades.get(i);
+			data.add(number, freq);
+		}
+		
 		// add the series to the dataset
-		dataset.addSeries("Frequency", dataValues, bin);
+		dataset.addSeries(data);
 
-		// Declare and initialize a createHistogram JFreeChart
-		JFreeChart chart = ChartFactory.createHistogram("Grades Histogram", "Grade", "Frequency", dataset);
+		boolean legend = false; // do not visualize a legend
+		boolean tooltips = false; // do not visualize tooltips
+		boolean urls = false; // do not visualize urls
+
+		// Declare and initialize a createXYLineChart JFreeChart
+		JFreeChart chart = ChartFactory.createXYLineChart("Grades Histogram", "Grade", "Frequency", dataset,
+				PlotOrientation.VERTICAL, legend, tooltips, urls);
 
 		/*
 		 * Initialize a frame for visualizing the chart and attach the previously
