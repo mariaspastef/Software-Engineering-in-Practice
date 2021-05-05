@@ -1,0 +1,16 @@
+language: java
+
+jdk:
+  - openjdk8
+
+branches:
+  only:
+  - master
+  - development
+
+before_script: 
+  - cd project  # enter Maven root directory
+  - ls -la # this command just prints the contents of the current working directory.
+
+script: 
+  - mvn clean package

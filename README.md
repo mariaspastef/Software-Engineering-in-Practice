@@ -59,3 +59,7 @@ Note that the gradeshistogram-0.0.1-SNAPSHOT.jar is not executable.
 
 1. Setup Maven in Linux. Execute `sudo apt update && sudo apt install maven` in a terminal.
 2. Setup Maven in [Windows](https://mkyong.com/maven/how-to-install-maven-in-windows/).
+
+## Second Lab Assignment
+
+For the second Lab Assignment this is the individual README file.
