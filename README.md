@@ -64,4 +64,4 @@ Note that the gradeshistogram-0.0.1-SNAPSHOT.jar is not executable.
 
 ## Unit Testing
 
-For the module Unit Testing this is the [individual README.md file](https://github.com/mariaspastef/Software-Engineering-in-Practice/blob/development/unittesting/README.md) where more information and usuful details can be found.
+For the module Unit Testing there is an [individual README.md file](https://github.com/mariaspastef/Software-Engineering-in-Practice/blob/development/unittesting/README.md) where more information and usuful details can be found.
