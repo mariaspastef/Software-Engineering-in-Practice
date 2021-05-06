@@ -22,4 +22,18 @@ public class MyMathTest {
 		Assert.assertEquals(24, mm.factorial(4));
 	}
 	
+	@Test (expected = IllegalArgumentException.class)
+	public void test_prime_number_exception() {
+		mm.isPrime(1);
+	}
+	
+	@Test
+	public void test_prime_number_is_prime() {
+		Assert.assertEquals(true, mm.isPrime(11));
+	}
+	
+	@Test
+	public void test_prime_number_is_not_prime() {
+		Assert.assertEquals(false, mm.isPrime(30));
+	}
 }
