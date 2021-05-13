@@ -16,7 +16,7 @@ public class MyAdvancedMathTest {
 	public int n;
 	
 	@Parameter (value = 1)
-	public int factorial;
+	public int result;
 	
 	MyMath mm = new MyMath();
 	
@@ -28,6 +28,6 @@ public class MyAdvancedMathTest {
 	
 	@Test
 	public void test_factorial() {
-		Assert.assertEquals(factorial, mm.factorial(n));
+		Assert.assertEquals(result, mm.factorial(n));
 	}
 }
