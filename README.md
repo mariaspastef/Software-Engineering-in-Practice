@@ -1,5 +1,7 @@
 # Build Automation Tools - Software Engineering in Practice
 
+[![Build Status](https://travis-ci.com/mariaspastef/Software-Engineering-in-Practice.svg?token=7myoYu74yz4JRcU6eKXw&branch=main)](https://travis-ci.com/mariaspastef/Software-Engineering-in-Practice)
+
 This repository serves as a basic demonstration of the build automation tools (i.e., Maven) for the needs of the Software Eningineering in Practice course offered by the [Department of Management Science & Technology](https://www.dept.aueb.gr/el/dmst) of the Athens University of Economics and Business.
 The goal of this repository is to present the structure of a multi-module Maven project.
 
@@ -59,3 +61,7 @@ Note that the gradeshistogram-0.0.1-SNAPSHOT.jar is not executable.
 
 1. Setup Maven in Linux. Execute `sudo apt update && sudo apt install maven` in a terminal.
 2. Setup Maven in [Windows](https://mkyong.com/maven/how-to-install-maven-in-windows/).
+
+## Unit Testing
+
+For the module Unit Testing there is an [individual README.md file](https://github.com/mariaspastef/Software-Engineering-in-Practice/blob/development/unittesting/README.md) where more information and usuful details can be found.
