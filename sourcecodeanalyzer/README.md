@@ -74,7 +74,7 @@ The trade-off is that the code may become more complicated since new subclasses 
 
 Strategy Pattern helps define a family of algorithms, put each of them into a separate class, and make their objects interchangeable. The Strategy pattern suggests that a class that does something specific in a lot of different ways should be selected and all of these algorithms should be extracted into separate classes called strategies. It is recommended to use the Strategy Pattern when you want to use different variants of an algorithm within an object and be able to switch from one algorithm to another during runtime and when you have a lot of similar classes that only differ in the way they execute some behavior.
 
-And thus in this Project I would reccomend that Strategy Pattern be implemented in class SourceFileReader (because it's used extensively in the code of SourceCodeAnalyzer, whereas the methods of the pre-existing class MetricsExporter is not used inside any other class except from main. That's why I think it's best to use Strategy Pattern instead of Bridge Pattern, since the Strategy Pattern is meant for behavior and the Bridge Pattern is meant for structure.).
+And thus in this Project I reccomend that Strategy Pattern be implemented in class SourceFileReader (because it's used extensively in the code of SourceCodeAnalyzer, whereas the methods of the pre-existing class MetricsExporter is not used inside any other class except from main. That's why I think it's best to use Strategy Pattern instead of Bridge Pattern, since the Strategy Pattern is meant for behavior and the Bridge Pattern is meant for structure.).
 
 The benefits are that there is much more freedom to choose algorithms and that the extensibility is easier. Also, You can swap algorithms used inside an object at runtime and isolate the implementation details of an algorithm from the code that uses it. It also follows the Open/Closed Principle (You can introduce new strategies without having to change the context).
 The trade-off is that if you only have a couple of algorithms and they rarely change, there’s no real reason to overcomplicate the program with new classes and interfaces that come along with the pattern, but in this case the algorithms change very very often so I think it's a good idea to use the Strategy Pattern in this case.
@@ -83,7 +83,7 @@ The trade-off is that if you only have a couple of algorithms and they rarely ch
 
 The intent of a Null Object is to encapsulate the absence of an object by providing a substitutable alternative that offers suitable default do nothing behavior.
 
-I would recommend using the Null Object Pattern in the pre-existing class that handles the files given to the project, since there are many checks for null in that code (and nowhere else in the project).
+I recommend using the Null Object Pattern in the pre-existing class that handles the files given to the project, since there are many checks for null in that code (and nowhere else in the project).
 
 The benefits are that it simplifies the code, because it avoids having to write testing code which handles the null collaborator specially and it also removes the responsibility of Clients handling null cases.
 What should be taken seriously is that by hiding errors and complicating testing, it can cause harm.
